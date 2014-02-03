@@ -1,0 +1,118 @@
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+ 
+ /**
+ * @category    TDProject
+ * @package     TDProject_Core
+ * @copyright   Copyright (c) 2010 <info@techdivision.com> - TechDivision GmbH
+ * @license     http://opensource.org/licenses/osl-3.0.php
+ *              Open Software License (OSL 3.0)
+ * @author      Johann Zelger <jz@techdivision.com>
+ */
+ 
+ /* General
+----------------------------------------------------------------------------------------------------*/
+	html { height: 100%; min-height: 100%; }
+	body { height: 100%; font-size: 75%; border: none!important; }
+	a:focus { outline: 0; }
+
+/* Header
+----------------------------------------------------------------------------------------------------*/
+	#header { height: 100px; padding-top: 10px; }
+
+/* Toolbar
+----------------------------------------------------------------------------------------------------*/
+	#toolbar-view { position: absolute; top: 0; right: 0; }
+
+/* Content
+----------------------------------------------------------------------------------------------------*/
+	#content { height: 100%; margin-top: -120px; margin-bottom: -35px; }
+	
+/* Login
+----------------------------------------------------------------------------------------------------*/
+	.loginWrapper input { width: 98%; }
+	
+/* Footer
+----------------------------------------------------------------------------------------------------*/
+	#footer { height: 35px; }
+
+/* Forms
+----------------------------------------------------------------------------------------------------*/
+	.loginWrapper { margin: 0 auto; width:220px; }
+	fieldset { margin-top: 20px; padding: 15px; }
+	fieldset .required { color: #FF0000 }
+	
+	legend { font-size: 120%; font-weight: bold; }
+	label { display:block; width:99%; margin: 10px 0 0 0; }
+	label .title { font-weight: bold; margin: 0 0 5px 0; }
+		
+	input[type="radio"] { top: -1px; margin: 3px 4px 3px 1px; }
+	input[type="checkbox"] { top: -2px; margin: 3px 4px 3px 1px; }
+	input[type="file"] { margin: 3px 6px 3px 6px; }
+	
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"] { position: relative; top: 5px; margin-bottom: 18px; }
+
+	select { display: block; margin: 3px 0 0 0; }
+	textarea { width: 200px; line-height: 18px; margin: 3px 0 -2px 0; display: block; clear: left; overflow: auto; }
+
+/* Misc (compatibility)
+----------------------------------------------------------------------------------------------------*/
+	.css_right { float:right; }
+	.css_left { float:left; }
+	.align-right { text-align:right; }
+	.align-left { text-align:right; }
+	
+/* jQuery sparklines
+----------------------------------------------------------------------------------------------------*/
+	.inlinesparkline { vertical-align: middle; padding: 0 10px; }
+	
+/* jQuery ui
+----------------------------------------------------------------------------------------------------*/
+	.ui-widget { font-size:11px !important; } 
+
+/* jQuery dataTable
+----------------------------------------------------------------------------------------------------*/
+	.dataTables_filter input { width:220px; }
+	.dataTables_wrapper tbody td { border-left: 1px solid #D3D3D3;border-right: 1px solid #D3D3D3; }
+	.dataTables_wrapper tbody tr:hover { background-color: #EEEEEE;}
+	.dataTables_wrapper input,
+	.dataTables_wrapper select { width: 80;}
+	.dataTables_wrapper td select { width: 100%; }
+	.dataTables_wrapper .dataTables_length select { display:inline; }
+	
+/* jQuery jgrowl
+----------------------------------------------------------------------------------------------------*/
+	div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer { width:400px; }
+	
+/* jQuery jqplot
+----------------------------------------------------------------------------------------------------*/
+	.type-graph { margin: 0 8px; }
+	
+/* jQuery grid
+----------------------------------------------------------------------------------------------------*/
+	tr.odd,
+	tr.even,
+	tr.odd td.sorting_1,
+	tr.odd td.sorting_2,
+	tr.odd td.sorting_3,
+	tr.even td.sorting_1,
+	tr.even td.sorting_2,
+	tr.even td.sorting_3 { background:none!important; }
+	
+/* jQuery timepicker
+----------------------------------------------------------------------------------------------------*/
+	.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+	.ui-timepicker-div dl { text-align: left; }
+	.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+	.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+	.ui-timepicker-div td { font-size: 90%; }
+	.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }

@@ -1,0 +1,29 @@
+<div id="<?php echo $this->getBlockName() ?>">
+	<noscript>
+		<p>Please enable JavaScript to use file uploader.</p>
+		<!-- or put a simple form for upload here -->
+	</noscript>
+</div>
+<script>
+function createUploader() {            
+	var uploader = new qq.FileUploader({
+		element: document.getElementById('<?php echo $this->getBlockName() ?>'),
+        action: '<?php echo $this->getUploadUrl() ?>',
+        debug: true,
+       
+	    // you can return false to abort submit
+	    onSubmit: function(id, fileName){},
+	    onProgress: function(id, fileName, loaded, total){},
+	    onComplete: function(id, fileName, responseJSON){},
+	    onCancel: function(id, fileName){},
+	    
+	    messages: {
+	    	// error messages, see qq.FileUploaderBasic for content            
+	    },
+
+	    showMessage: function(message){ alert(message); }
+	});           
+}
+// in your app create uploader as soon as the DOM is ready don't wait for the window to load  
+window.onload = createUploader;
+</script>

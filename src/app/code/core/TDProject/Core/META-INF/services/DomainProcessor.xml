@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+-->
+<processor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.techdivision.com/schema/session-1.0.0.xsd"
+	name="DomainProcessor" type="session" default-application="core"
+	deployment-descriptor="TDProject/META-INF/deployment-descriptor.xml">
+	<description>This class represents an object oriented way to manipulate data in the database.</description>
+	<methods>
+		<method name="getUserViewData" type="abstract">
+			<description><![CDATA[This method returns the user with the ID passed as parameter.]]></description>
+			<params>
+				<param name="userId" type="TechDivision_Lang_Integer" default="null">
+					<description><![CDATA[Holds the ID of the user to load the data for]]></description>
+				</param>
+			</params>
+			<return type="TDProject_Core_Common_ValueObjects_UserValue">
+				<description><![CDATA[Returns a DTO initialized with the data of the requested user.]]></description>
+			</return>
+		</method>
+		<method name="getUserOverviewData" type="abstract">
+            <description><![CDATA[This method returns all users.]]></description>
+            <params/>
+            <return type="TechDivision_Collections_ArrayList">
+                <description><![CDATA[Returns a ArrayList with all users.]]></description>
+            </return>
+        </method>
+		<method name="saveUser" type="abstract">
+			<description><![CDATA[This method saves the passed user.]]></description>
+			<params>
+				<param name="lvo" type="TDProject_Core_Common_ValueObjects_UserLightValue">
+					<description><![CDATA[Holds the LVO with the user data]]></description>
+				</param>
+			</params>
+			<return type="TechDivision_Lang_Integer">
+				<description><![CDATA[Returns the ID of the user.]]></description>
+			</return>
+		</method>
+		<method name="deleteUser" type="abstract">
+            <description><![CDATA[This method deletes the user with the ID passed as parameter.]]></description>
+            <params>
+                <param name="userId" type="TechDivision_Lang_Integer">
+                    <description><![CDATA[Holds the ID of the user to delete]]></description>
+                </param>
+            </params>
+            <return type="void">
+                <description><![CDATA[Returns nothing.]]></description>
+            </return>
+        </method>
+        <method name="getOwnUserViewData" type="abstract">
+            <description><![CDATA[This method returns the user with the ID passed as parameter.]]></description>
+            <params>
+                <param name="userId" type="TechDivision_Lang_Integer" default="null">
+                    <description><![CDATA[Holds the ID of the user to load the data for]]></description>
+                </param>
+            </params>
+            <return type="TDProject_Core_Common_ValueObjects_System_UserValue">
+                <description><![CDATA[Returns a DTO initialized with the data of the requested user.]]></description>
+            </return>
+        </method>
+        <method name="updateOwnUser" type="abstract">
+            <description><![CDATA[This method updates the passed user.]]></description>
+            <params>
+                <param name="lvo" type="TDProject_Core_Common_ValueObjects_UserLightValue">
+                    <description><![CDATA[Holds the LVO with the user data]]></description>
+                </param>
+            </params>
+            <return type="TDProject_Core_Common_ValueObjects_UserLightValue">
+                <description><![CDATA[The updated system user.]]></description>
+            </return>
+        </method>
+        <method name="changeUserStatus" type="abstract">
+            <description><![CDATA[This method change the active flag of a user.]]></description>
+            <params>
+                <param name="userId" type="TechDivision_Lang_Integer">
+                    <description><![CDATA[The id of the user]]></description>
+                </param>
+                <param name="enabled" type="TechDivision_Lang_Boolean">
+                    <description><![CDATA[The user's state flag]]></description>
+                </param>
+            </params>
+            <return type="void">
+                <description><![CDATA[Returns nothing.]]></description>
+            </return>
+        </method>
+		<method name="login" type="abstract">
+			<description><![CDATA[This method creates a new user.]]></description>
+			<params>
+				<param name="username" type="TechDivision_Lang_String">
+					<description><![CDATA[The username]]></description>
+				</param>
+				<param name="password" type="TechDivision_Lang_String">
+					<description><![CDATA[The password]]></description>
+				</param>
+			</params>
+			<return type="TDProject_Core_Common_ValueObjects_UserLightValue">
+				<description><![CDATA[The system user.]]></description>
+			</return>
+		</method>
+		<method name="getSettingViewData" type="abstract">
+			<description><![CDATA[This method returns the settings.]]></description>
+			<params/>
+			<return type="TDProject_Core_Common_ValueObjects_SettingLightValue">
+				<description><![CDATA[Returns a LVO initialized with the settings.]]></description>
+			</return>
+		</method>
+		<method name="saveSetting" type="abstract">
+			<description><![CDATA[This method stores the passed settings in the database.]]></description>
+			<params>
+				<param name="lvo" type="TDProject_Core_Common_ValueObjects_SettingLightValue">
+					<description><![CDATA[Holds the LVO with the settings to store]]></description>
+				</param>
+			</params>
+			<return type="TechDivision_Lang_Integer">
+				<description><![CDATA[Returns the ID of the setting.]]></description>
+			</return>
+		</method>
+		<method name="getDashboardViewData" type="abstract">
+			<description><![CDATA[This method returns the dashboard data.]]></description>
+			<params/>
+			<return type="TDProject_Core_Common_ValueObjects_DashboardViewData">
+				<description><![CDATA[Returns a DTO initialized with the dashboard data.]]></description>
+			</return>
+		</method>
+        <method name="getResourceViewData" type="abstract">
+            <description><![CDATA[This method returns the resource message with the ID passed as parameter.]]></description>
+            <params>
+                <param name="resourceId" type="TechDivision_Lang_Integer" default="null">
+                    <description><![CDATA[Holds the ID of the resource message to load the data for]]></description>
+                </param>
+            </params>
+            <return type="TDProject_Core_Common_ValueObjects_ResourceValue">
+                <description><![CDATA[Returns a DTO initialized with the data of the requested resource message.]]></description>
+            </return>
+        </method>
+        <method name="getResourceOverviewData" type="abstract">
+            <description><![CDATA[This method returns all resource messages.]]></description>
+            <params/>
+            <return type="TechDivision_Collections_ArrayList">
+                <description><![CDATA[Returns a ArrayList with all resource messages.]]></description>
+            </return>
+        </method>
+        <method name="saveResource" type="abstract">
+            <description><![CDATA[This method saves the passed resource.]]></description>
+            <params>
+                <param name="lvo" type="TDProject_Core_Common_ValueObjects_ResourceLightValue">
+                    <description><![CDATA[Holds the LVO with the resource message data]]></description>
+                </param>
+            </params>
+            <return type="TechDivision_Lang_Integer">
+                <description><![CDATA[Returns the ID of the resource message.]]></description>
+            </return>
+        </method>
+        <method name="deleteResource" type="abstract">
+            <description><![CDATA[This method deletes the resource message with the ID passed as parameter.]]></description>
+            <params>
+                <param name="resourceId" type="TechDivision_Lang_Integer">
+                    <description><![CDATA[Holds the ID of the resource to delete]]></description>
+                </param>
+            </params>
+            <return type="void">
+                <description><![CDATA[Returns nothing.]]></description>
+            </return>
+        </method>
+        <method name="getAcl" type="abstract">
+            <description><![CDATA[This method loads and returns the ACL.]]></description>
+            <params/>
+            <return type="Zend_Acl">
+                <description><![CDATA[The initialized ACL.]]></description>
+            </return>
+        </method>
+        <method name="getGuestUser" type="abstract">
+            <description><![CDATA[This method loads and returns the guest user DTO.]]></description>
+            <params/>
+            <return type="TDProject_Core_Common_ValueObjects_UserLightValue">
+                <description><![CDATA[The initialized DTO.]]></description>
+            </return>
+        </method>
+        <method name="rewrite" type="abstract">
+            <description><![CDATA[This method returns the rewrite for the passed source URL.]]></description>
+            <params>
+                <param name="source" type="TechDivision_Lang_String">
+                    <description><![CDATA[The source URL to return the rewrite for]]></description>
+                </param>
+            </params>
+            <return type="TDProject_Core_Common_ValueObjects_RewriteLightValue">
+                <description><![CDATA[The rewrite LVO.]]></description>
+            </return>
+        </method>
+        <method name="runSystemUpdate" type="abstract">
+            <description><![CDATA[This method runs the system update process.]]></description>
+            <params>
+                <param name="options" type="array" default="array()">
+                    <description><![CDATA[The update options]]></description>
+                </param>
+            </params>
+            <return type="void">
+                <description><![CDATA[Returns nothing.]]></description>
+            </return>
+        </method>
+        <method name="runSystemInstall" type="abstract">
+            <description><![CDATA[This method runs the system installation process.]]></description>
+            <params>
+                <param name="options" type="array" default="array()">
+                    <description><![CDATA[The installation options]]></description>
+                </param>
+            </params>
+            <return type="void">
+                <description><![CDATA[Returns nothing.]]></description>
+            </return>
+        </method>
+        <method name="runGeneration" type="abstract">
+            <description><![CDATA[This method runs the generation process.]]></description>
+            <params>
+                <param name="options" type="array" default="array()">
+                    <description><![CDATA[The generation options]]></description>
+                </param>
+            </params>
+            <return type="void">
+                <description><![CDATA[Returns nothing.]]></description>
+            </return>
+        </method>
+	</methods>
+</processor>

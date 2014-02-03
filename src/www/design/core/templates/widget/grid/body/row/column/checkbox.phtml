@@ -1,0 +1,10 @@
+<td width="<?php echo $this->getWidth() ?>%"><span style="display:none;"><?php echo (int)$this->isChecked()*-1; ?></span>
+	<input 
+		type="checkbox"
+		value="<?php echo $this->getValue() ?>" 
+		name="<?php echo $this->getBlockName() ?>[]" 
+		id="<?php echo $this->getBlockName() ?>"
+		onchange="checkBoxChange(this, '<?php echo $this->getCheckedUrl() ?>', '<?php echo $this->getUncheckedUrl() ?>');"
+		<?php if ($this->isChecked()) { ?>checked="checked" <?php } ?>
+ />
+</td>

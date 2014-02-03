@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+
+#tasks,#tasks input,.jstree-dnd-helper,#vakata-contextmenu {
+	font-size: 10px;
+	font-family: Verdana;
+}
+
+#container {
+	position: relative;
+}
+
+#container .tasks {
+	width: 780px;
+	border: 0;
+	padding: 0;
+}
+
+#container #tasks {
+	width: 778px;
+	float: none;
+	height: 400px;
+	overflow: auto;
+	border: 1px solid gray;
+}
+
+#menub {
+	height: 30px;
+	overflow: auto;
+}
+
+#text {
+	margin-top: 1px;
+}
+
+#alog {
+	font-size: 9px !important;
+	margin: 5px;
+	border: 1px solid silver;
+}

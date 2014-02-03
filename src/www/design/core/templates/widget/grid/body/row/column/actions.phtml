@@ -1,0 +1,9 @@
+<td width="<?php echo $this->getWidth() ?>%">
+	<select 
+		name="<?php echo $this->getBlockName() ?>" 
+		id="<?php echo $this->getBlockName() ?>"
+		onchange="<?php echo $this->getOnChange() ?>">
+		<option value=""></option>
+		<?php foreach ($this->getActions() as $action) { ?><?php $this->_getChildHtml($action->getBlockName()) ?><?php } ?>
+	</select>
+</td>

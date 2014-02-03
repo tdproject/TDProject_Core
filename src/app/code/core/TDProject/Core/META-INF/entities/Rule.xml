@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+-->
+<entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.techdivision.com/schema/entity-1.0.0.xsd"
+	name="Rule" type="entity">
+    <description>This class represents an object oriented way to manipulate data in the database.</description>
+    <members>
+        <member name="ruleId" sqlname="rule_id" type="Integer" initial="0"/>
+        <member name="roleIdFk" sqlname="role_id_fk" type="Integer" initial="0"/>
+        <member name="assertionIdFk" sqlname="assertion_id_fk" type="Integer" initial="0"/>
+    	<member name="resource" sqlname="resource" type="String" initial="null"/>
+        <member name="privileges" sqlname="privileges" type="String" initial="null"/>
+        <member name="permission" sqlname="permission" type="String" initial="null"/>
+	</members>
+	<querys>
+		<query>
+			<description><![CDATA[Returns all rules.]]></description>
+			<method name="findAll">
+				<params/>
+			</method>
+			<result-type>ArrayList</result-type>
+			<sql>SELECT rule_id FROM rule</sql>
+		</query>
+        <query>
+            <description><![CDATA[Returns all rules with the passed role ID.]]></description>
+            <method name="findAllByRoleIdFk">
+                <params>
+                    <param name="roleIdFk" type="Integer"/>
+                </params>
+            </method>
+            <result-type>ArrayList</result-type>
+            <sql>SELECT rule_id FROM rule WHERE role_id_fk = ?</sql>
+        </query>
+        <query>
+            <description><![CDATA[Returns all rules with the passed assertion ID.]]></description>
+            <method name="findAllByAssertionIdFk">
+                <params>
+                    <param name="assertionIdFk" type="Integer"/>
+                </params>
+            </method>
+            <result-type>ArrayList</result-type>
+            <sql>SELECT rule_id FROM rule WHERE assertion_id_fk = ?</sql>
+        </query>
+        <query>
+            <description><![CDATA[Returns all rules with the passed role ID.]]></description>
+            <method name="findAllByRoleIdFkAndResource">
+                <params>
+                    <param name="roleIdFk" type="Integer"/>
+                    <param name="resource" type="String"/>
+                </params>
+            </method>
+            <result-type>ArrayList</result-type>
+            <sql>SELECT rule_id FROM rule WHERE role_id_fk = ? AND resource = ?</sql>
+        </query>
+	</querys>
+	<references>
+		<reference name="rule-has-role">
+			<method-name>Role</method-name>
+			<multiplicity>one</multiplicity>
+			<source>
+				<entity-name>Role</entity-name>
+			</source>
+			<target>
+				<member-name>roleIdFk</member-name>
+			</target>
+		</reference>
+        <reference name="rule-has-assertion">
+            <method-name>Assertion</method-name>
+            <multiplicity>one</multiplicity>
+            <source>
+                <entity-name>Assertion</entity-name>
+            </source>
+            <target>
+                <member-name>assertionIdFk</member-name>
+            </target>
+        </reference>
+	</references>
+	<tables>
+		<table type="InnoDB" default-charset="utf8" collate="utf8_unicode_ci" auto-increment="1" name="rule">
+			<keys>
+				<pk name="rule_pk" field="rule_id"/>
+				<index name="rule_idx_01" field="role_id_fk"/>
+                <index name="rule_idx_02" field="assertion_id_fk"/>
+                <unique-multi name="rule_uidx_01">
+                    <columns>
+                        <column>role_id_fk</column>
+                        <column>resource</column>
+                    </columns>
+                </unique-multi>
+                <fk name="rule_fk_01" target-table="role" field="role_id_fk" target-field="role_id"/>
+                <fk name="rule_fk_02" target-table="assertion" field="assertion_id_fk" target-field="assertion_id"/>
+			</keys>	
+			<fields>
+				<field name="rule_id" type="int" length="10" nullable="false" autoincrement="true"/>
+                <field name="role_id_fk" type="int" length="10" nullable="false"/>
+                <field name="assertion_id_fk" type="int" length="10" nullable="true"/>
+				<field name="resource" type="varchar" length="255" nullable="false"/>
+                <field name="privileges" type="varchar" length="255" nullable="true"/>
+                <field name="permission" type="varchar" length="255" nullable="false"/>
+			</fields>
+		</table>
+	</tables>
+</entity>

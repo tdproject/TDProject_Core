@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pointcuts>
+    <!-- pointcut>
+        <includeFile>TDProject/Core/Aspect/Logging.php</includeFile>
+        <className>TDProject_Core_Aspect_Logging</className>
+        <methodToIntercept>.* TDProject_.*_Controller.*->.*(.*)</methodToIntercept>
+        <advice>before</advice>
+        <interceptWithMethod>log</interceptWithMethod>
+    </pointcut -->
+    <pointcut>
+        <includeFile>TDProject/Core/Aspect/Authorization/Acl.php</includeFile>
+        <className>TDProject_Core_Aspect_Authorization_Acl</className>
+        <methodToIntercept>public.* TDProject_Core_Controller.*->.*Action(.*)</methodToIntercept>
+        <advice>around</advice>
+        <interceptWithMethod>forceAuthorization</interceptWithMethod>
+    </pointcut>
+</pointcuts>

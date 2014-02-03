@@ -1,0 +1,26 @@
+<?php
+ 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+
+?>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+	
+	$("#<?php echo $this->getBlockName() ?>").button({
+		icons: { primary: "<?php echo $this->getIcon() ?>"}
+	}).click(function() {
+		<?php if ($this->isBindedToTab()) { ?>$('#tabs').tabs('select', '#<?php echo $this->getBindedTab()->getCssId() ?>');<?php } ?>
+		return false;
+	});
+
+});
+</script>
+<button id="<?php echo $this->getBlockName()?>"><?php echo $this->getBlockTitle()?></button>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+-->
+<entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.techdivision.com/schema/entity-1.0.0.xsd"
+	name="Widget" type="entity">
+    <description>This class represents an object oriented way to manipulate data in the database.</description>
+    <members>
+        <member name="widgetId" sqlname="widget_id" type="Integer" initial="0"/>
+    	<member name="name" sqlname="name" type="String" initial="null"/>
+    	<member name="block" sqlname="block" type="String" initial="null"/>
+    	<member name="includeFile" sqlname="include_file" type="String" initial="null"/>
+	</members>
+	<querys>
+		<query>
+			<description><![CDATA[Returns all dashboard widgets.]]></description>
+			<method name="findAll">
+				<params/>
+			</method>
+			<result-type>ArrayList</result-type>
+			<sql><![CDATA[SELECT widget_id FROM widget]]></sql>
+		</query>
+	</querys>
+	<tables>
+		<table type="InnoDB" default-charset="utf8" collate="utf8_unicode_ci" auto-increment="1" name="widget">
+			<keys>
+				<pk name="widget_pk" field="widget_id"/>
+			</keys>	
+			<fields>
+				<field name="widget_id" type="int" length="10" nullable="false" autoincrement="true"/>
+				<field name="name" type="varchar" length="45" nullable="false"/>
+				<field name="block" type="varchar" length="255" nullable="false"/>
+				<field name="include_file" type="varchar" length="255" nullable="false"/>
+			</fields>
+			<initial-data>
+				<rows>
+					<row>
+						<col name="widget_id">1</col>
+						<col name="name">Note</col>
+						<col name="block">TDProject_ERP_Block_Dashboard_Widget_Note</col>
+						<col name="include_file">TDProject/ERP/Block/Dashboard/Widget/Note.php</col>
+					</row>
+                    <row>
+                        <col name="widget_id">2</col>
+                        <col name="name">Logging</col>
+                        <col name="block">TDProject_Project_Block_Dashboard_Widget_Logging</col>
+                        <col name="include_file">TDProject/Project/Block/Dashboard/Widget/Logging.php</col>
+                    </row>
+				</rows>
+			</initial-data>
+		</table>
+	</tables>
+</entity>

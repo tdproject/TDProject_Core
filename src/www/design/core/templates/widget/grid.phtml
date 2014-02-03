@@ -1,0 +1,147 @@
+<?php
+
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+
+?>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+
+	// initialize the sparklines
+	<?php if ($this->useSparklines()) { ?>$(function() {
+	    $('.inlinesparkline').sparkline('html', { width:120 });
+	});<?php } ?>
+
+	// initialize the grid
+	<?php echo $this->getBlockName() ?> = $('#<?php echo $this->getBlockName() ?>').dataTable( {
+		"bJQueryUI": true,
+		"aaSorting": [<?php foreach ($this->getSorting() as $columnNumber => $sortOrder) { ?>[ <?php echo $columnNumber ?>, "<?php echo $sortOrder ?>" ]<?php } ?>],
+		"sPaginationType": "full_numbers",
+		"bFilter": true,
+		"bStateSave": true<?php if ($this->isSortable()) { ?>,
+		"bSort": true<?php } ?>
+	});
+	
+	// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+	$("#dialog:ui-dialog").dialog("destroy");
+	// initialize the dialog to prevent unwanted deletion of records
+	$("#<?php echo $this->getBlockName() ?>-dialog-confirm").dialog({
+		autoOpen: false,
+		resizable: false,
+		height:140,
+		modal: true
+	});
+});
+
+/**
+ * 
+ */
+function checkBoxChange(checkBox, checkedurl, uncheckedurl) {
+	// prepare new sorting value for dataTable cell
+	$(checkBox).prev().html(Number(checkBox.checked)*-1);
+	// prepare actionUrl and new dataTable cell value
+	if (checkBox.checked) {
+		var actionUrl = checkedurl;
+		var newValue = checkBox.parentNode.innerHTML.replace('<input ','<input checked="checked" ');
+	} else {
+		var actionUrl = uncheckedurl;
+		var newValue = checkBox.parentNode.innerHTML.replace('checked="checked"','');
+	}
+	/**
+	 * Send row changes to actionUrl via ajax if actionUrl is not
+	 * empty and put the responding messages block into the
+	 * messages container
+	 */
+	if (actionUrl) {
+		// init grid
+		var gridDomObject = $(checkBox).parents('table')[0];
+		var gridObject = $('#'+gridDomObject.id).dataTable();
+		// init dataRow
+		var row = checkBox.parentNode.parentNode;
+		var aPos = gridObject.fnGetPosition( row );
+		// init dataQuery by current row to send to action
+		var dataQuery = '';
+		$(row).find('input, select, textarea').each(function(e){
+			dataQuery += '&' + this.id + '=' + this.value;
+		});
+
+		$.ajax({
+			url: actionUrl + dataQuery,
+			success: function(data) {
+				$('#messages').html(data);
+				// refresh grid
+				gridObject.fnUpdate(newValue, aPos, 0, true);
+			}
+		});
+	}
+}
+
+/**
+ * 
+ */
+function selectChange(select) {
+	var checkBox = $(select).parent().parent().find('input:checkbox')[0];
+	if (checkBox) {
+		checkBox.checked=true;
+		checkBox.onchange();
+	}
+}
+
+
+/**
+ * This method invokes the action method
+ * selected by the user.
+ *
+ * @param HTMLSelect The select element
+ * @return void
+ */
+function selectAction(select) {
+	// load the selected option
+	var option = $(select).parent().parent().find('option:selected')[0];
+	// if a option was found, invoke the URL
+	if (option) {
+		// check if the 'Deleted' action was selected
+		if (option.label == '<?php echo $this->translate(TDProject_Core_Block_Widget_Grid_Column_Actions_Delete::RESOURCE_KEY, TDProject_Core_Block_Widget_Abstract::MESSAGE_RESOURCES) ?>') {
+			// initialize the buttons for the
+			$("#<?php echo $this->getBlockName() ?>-dialog-confirm").dialog(
+				'option', 'buttons', { 
+					"Cancel": function() {
+						$(this).dialog("close");
+					},
+					"Ok": function() { window.location = option.value } 
+				});
+			// open the modal dialog to prevent unwanted deletion of the item
+			$("#<?php echo $this->getBlockName() ?>-dialog-confirm").dialog('open');
+		} 
+		else {
+			// don't render the dialog, redirect to the edit dialog instead
+			window.location = option.value;
+		}
+	}
+}
+
+</script>
+
+<div id="<?php echo $this->getBlockName() ?>-dialog-confirm" title="Delete records?">
+	<p>
+		<span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+		These items will be permanently deleted and cannot be recovered. Are you sure?
+	</p>
+</div>
+
+<div id="dynamic">
+	<table cellpadding="0" cellspacing="0" border="0" class="display" id="<?php echo $this->getBlockName() ?>">
+		<?php foreach ($this->_getChilds() as $child) { ?>
+			<?php $this->_getChildHtml($child->getBlockName()) ?>
+		<?php } ?>
+	</table>
+</div>
+<div class="spacer"></div>

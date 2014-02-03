@@ -1,0 +1,22 @@
+<?php
+ 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+
+?>		 
+<div id="heading">
+	<div id="toolbar-view">
+		<span id="<?php echo $this->getCssId() ?>" class="<?php echo $this->getCssClass() ?>">
+			<?php foreach ($this->getButtons() as $button) { ?>
+				<?php $this->_getChildHtml($button->getBlockName()) ?>
+			<?php } ?>
+		</span>
+	</div>
+</div>

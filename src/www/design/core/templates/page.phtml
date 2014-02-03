@@ -1,0 +1,105 @@
+<?php
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<?php $this->_getChildHtml('head'); ?>
+
+	<body class="ui-widget ui-widget-content">
+		<div id="header" class="container_12">
+			<!-- START: Logo -->
+			<div id="logo" class="grid_2">
+				<p>
+					<a href="<?php echo $this->getUrl(array('path' => '/dashboard')) ?>">
+						<img src="<?php echo $this->getDesignUrl('core/templates/global/images/logo.png') ?>"/>
+					</a>
+				</p>
+			</div>
+			<!-- END: Logo -->
+
+			<!-- START: Menu -->
+			<div id="menu" class="grid_10 align-right">
+				<?php $this->_getChildHtml('navigation') ?>
+				<?php if ($this->getSystemUser()): ?>
+					<button id="button-menu">Menu</button>
+				<?php endif; ?>
+				<button id="button-account"><?php echo $this->getSystemUser() ? "Logout" : "Login";?></button>
+				<button id="button-language"><?php echo $this->translate('label.button.switch-locale.' . $this->getSystemLocale()) ?></button>
+				<?php if ($this->getSystemUser()): ?>
+					<br/><br/>
+					<p>
+						<?php echo $this->translate('label.page.logged-in-as') ?>
+						<b>
+						    <?php echo $this->getSystemUser()->getUsername(); ?> [<?php echo $this->getSystemUser()->getDefaultRole()->getName(); ?>]
+						</b>
+					</p>
+				<?php endif; ?>
+			</div>
+			<!-- END: Menu -->
+			<div class="clear"></div>
+		</div>
+
+		<div id="content" class="container_12">
+			<div class="grid_12">
+				<?php $this->_getChildHtml('action') ?>
+				<?php $this->_getChildHtml('content') ?>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<div id="footer" class="container_12">
+			<div class="grid_12">
+				<p><br/>Copyright &copy; 2010-<?php echo $this->getCurrentYear(); ?> TechDivision</p>
+				<div id="fogLoader" style="display:none"></div>
+				<div id="messages" style="display:none"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+		<?php $this->_getChildHtml('footer'); ?>
+
+		<script>
+
+			$(function() {
+
+			<?php if ($this->getSystemUser()):?>
+				$("#button-menu").button({
+					icons: {
+		                primary: "ui-icon-gear",
+		                secondary: "ui-icon-triangle-1-s"
+		            }
+				});
+			<?php endif; ?>
+
+				$("#button-account").button({
+					icons: {
+		                primary: "ui-icon-locked",
+		            }
+				}).click(function() {
+					window.location.href = "<?php echo $this->getSystemUser() ? $this->getLogoutUrl() : $this->getLoginUrl();?>";
+				});
+
+				$("#button-language").button({
+					icons: {
+		                primary: "ui-icon-flag",
+		            }
+				}).click(function() {
+					window.location.href = "<?php echo $this->getLanguageUrl() ?>";
+				});
+
+			});
+
+		</script>
+
+	</body>
+
+</html>

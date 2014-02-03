@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * TDProject_Project
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+
+?>
+
+<script type="text/javascript" src="www/design/core/templates/global/js/loader.js"></script>
+<script type="text/javascript" src="www/design/core/templates/global/js/jquery.form.js"></script>
+<script type="text/javascript">
+
+	// wait for the DOM to be loaded 
+	$(document).ready(function() { 
+		
+	    var options = { 
+
+	        target:        '#<?php echo $this->getCssId() ?>-dialog',   // target element(s) to be updated with server response 
+            // beforeSubmit:  showRequest,  // pre-submit callback 
+            // success:       showResponse  // post-submit callback 
+     
+            // other available options: 
+            //url:       url         // override for form's 'action' attribute 
+            //type:      type        // 'get' or 'post', override for form's 'method' attribute 
+            //dataType:  null        // 'xml', 'script', or 'json' (expected server response type) 
+            //clearForm: true        // clear all form fields after successful submit 
+            //resetForm: true        // reset the form after successful submit 
+     
+            // $.ajax options can be used here too, for example: 
+            //timeout:   3000 
+        }; 
+     
+        // bind to the form's submit event 
+        $('#<?php echo $this->getCssId() ?>').submit(function() { 
+            // wrap the form and then invoke ajaxSubmit 
+            $(this).ajaxSubmit(options);
+            // always return false to prevent standard browser submit and page navigation 
+            return false; 
+        });
+        
+	});
+	
+</script>
+
+<?php $this->_getChildHtml('toolbar') ?>
+
+<div id="<?php echo $this->getCssId() ?>-dialog">
+	<?php $this->_getChildHtml('action') ?>
+	<form 
+		id="<?php echo $this->getCssId() ?>"
+		name="<?php echo $this->getFormName() ?>"
+		method="post">
+		<?php foreach ($this->_getChilds() as $child): ?>
+			<?php $this->_getChildHtml($child->getBlockName()) ?>
+		<?php endforeach; ?>
+	</form>
+</div>

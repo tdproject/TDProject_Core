@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pointcuts>
+    <!-- pointcut>
+        <includeFile>TDProject/Core/Aspect/Logging.php</includeFile>
+        <className>TDProject_Core_Aspect_Logging</className>
+        <methodToIntercept>.* TDProject_.*_Controller.*->.*(.*)</methodToIntercept>
+        <advice>before</advice>
+        <interceptWithMethod>log</interceptWithMethod>
+    </pointcut>
+    <pointcut>
+        <includeFile>TDProject/Core/Aspect/Model/Services/DomainProcessor.php</includeFile>
+        <className>TDProject_Core_Aspect_Model_Services_DomainProcessor</className>
+        <methodToIntercept>public.* TDProject_Core_Model_Services_DomainProcessor.*->.*getAcl(.*)</methodToIntercept>
+        <advice>around</advice>
+        <interceptWithMethod>cacheGetAcl</interceptWithMethod>
+    </pointcut>
+    <pointcut>
+        <includeFile>TDProject/Core/Aspect/Model/Entities.php</includeFile>
+        <className>TDProject_Core_Aspect_Model_Entities</className>
+        <methodToIntercept>public.* TDProject_.*_Model_Entities.*->create(.*)</methodToIntercept>
+        <advice>after</advice>
+        <interceptWithMethod>cleanCache</interceptWithMethod>
+    </pointcut>
+    <pointcut>
+        <includeFile>TDProject/Core/Aspect/Model/Entities.php</includeFile>
+        <className>TDProject_Core_Aspect_Model_Entities</className>
+        <methodToIntercept>public.* TDProject_.*_Model_Entities.*->update(.*)</methodToIntercept>
+        <advice>after</advice>
+        <interceptWithMethod>cleanCache</interceptWithMethod>
+    </pointcut>
+    <pointcut>
+        <includeFile>TDProject/Core/Aspect/Model/Entities.php</includeFile>
+        <className>TDProject_Core_Aspect_Model_Entities</className>
+        <methodToIntercept>public.* TDProject_.*_Model_Entities.*->delete(.*)</methodToIntercept>
+        <advice>after</advice>
+        <interceptWithMethod>cleanCache</interceptWithMethod>
+    </pointcut>
+    <pointcut>
+        <includeFile>TDProject/Core/Aspect/Model/Entities.php</includeFile>
+        <className>TDProject_Core_Aspect_Model_Entities</className>
+        <methodToIntercept>public.* TDProject_.*_Model_Homes_.*->findAll.*(.*)</methodToIntercept>
+        <advice>around</advice>
+        <interceptWithMethod>checkCache</interceptWithMethod>
+    </pointcut -->
+</pointcuts>

@@ -1,0 +1,1242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.10" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+    <name>${ant.project.name}</name>
+    <channel>${pear.channel}</channel>
+    <summary>Core components for the TDProject.</summary>
+    <description>This project provide the login and role components.</description>
+    <lead>
+        <name>Tim Wagner</name>
+        <user>wagnert</user>
+        <email>tw@techdivision.com</email>
+        <active>yes</active>
+    </lead>
+    <date>${actual.date}</date>
+    <time>${actual.time}</time>
+    <version>
+        <release>${release.version}</release>
+        <api>${api.version}</api>
+    </version>
+    <stability>
+        <release>${release.stability}</release>
+        <api>${api.stability}</api>
+    </stability>
+    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+    <notes>Bugfixing system_error.phtml to print error messages</notes>
+    <dependencies>
+        <required>
+            <php>
+                <min>5.2.0</min>
+                <max>6.0</max>
+            </php>
+            <pearinstaller>
+                <min>1.6.2</min>
+            </pearinstaller>
+            <package>
+                <name>DB</name>
+                <channel>pear.php.net</channel>
+                <min>1.7.14</min>
+            </package>
+            <package>
+                <name>DB_NestedSet</name>
+                <channel>pear.php.net</channel>
+                <min>1.4.1</min>
+            </package>
+            <package>
+                <name>MDB2</name>
+                <channel>pear.php.net</channel>
+                <min>2.4.1</min>
+            </package>
+            <package>
+                <name>MDB2_Driver_Mysqli</name>
+                <channel>pear.php.net</channel>
+                <min>1.4.1</min>
+            </package>
+            <package>
+                <name>MDB2_Schema</name>
+                <channel>pear.php.net</channel>
+                <min>0.8.5</min>
+            </package>
+            <package>
+                <name>XML_Serializer</name>
+                <channel>pear.php.net</channel>
+                <min>0.20.2</min>
+            </package>
+            <package>
+                <name>TechDivision_AOP</name>
+                <channel>connect.techdivision.com</channel>
+                <min>0.1.10</min>
+            </package>
+			<package>
+				<name>TechDivision_Model</name>
+				<channel>connect.techdivision.com</channel>
+				<min>0.1.2</min>
+			</package>
+			<package>
+				<name>TechDivision_Controller</name>
+				<channel>connect.techdivision.com</channel>
+				<min>0.1.3</min>
+			</package>
+			<package>
+				<name>Swift</name>
+				<channel>pear.swiftmailer.org</channel>
+				<min>4.0.6</min>
+			</package>
+			<package>
+				<name>zend</name>
+				<channel>zend.googlecode.com/svn</channel>
+				<min>1.10.5</min>
+			</package>
+        </required>
+    </dependencies>
+    <phprelease/>
+    <changelog>
+        <release xmlns="">
+                    <version>
+                        <release>0.6.44</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2014-01-31</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        Bugfixing system_error.phtml to print error messages
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.43</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2014-01-27</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        using get_cfg_var instead of ini_get to load master values
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.42</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2014-01-27</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        Make toBytes() method public
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.40</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2012-02-04</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        -Add MDB2_Schema + XML_Serializer dependencies to package.xml
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.39</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2012-02-04</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Project Cycle + Lazy Loading for Collections
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.38</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2012-01-23</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Refactored jQuery grid styles
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.37</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2012-01-23</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Removing invalid MATCH SIMPLE option for foreign key constraints
+Change-Id: 	
+Ie66a4673020f85a28073f065e8629afbdb380f7b
+Owner	t.wagner@techdivision.com
+Project	tdproject/TDProject_Core
+Branch	master
+Topic	
+Uploaded	Jan 23, 2012 6:00 PM
+Updated	Jan 23, 2012 6:00 PM
+Status	Merged
+ 	
+Permalink
+	
+
+
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.36</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2012-01-22</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Add some logging functionality
+
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.35</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2012-01-22</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Add creation of property file for the database connection of the resources
+
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.34</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2012-01-22</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Changing entity Package to ChannelPackage to avoid problems with PEAR installer
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.33</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2012-01-21</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Refactor install + update functionality
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.32</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2012-01-09</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Collection Cache
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.31</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-12-27</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Bugfixing invalid URL for minifyer
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.30</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-12-27</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Refactor integration of minify CSS + JS files
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.29</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-12-19</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Add dummy constructors to avoid instanciation problems
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.28</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-12-19</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Add dummy constructors to avoid instanciation problems
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.27</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-12-19</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Refactor container handling + Remove unnecessary loggers
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.26</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-12-18</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Add dummy constructor to avoid instanciation problems
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.25</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-12-18</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Refactoring for use with AOP ACL cache
+
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.24</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-12-07</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Switch to new DataTables version 1.8.2
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.23</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-12-02</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Minor Bugfixes
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.22</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-11-28</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Switch to new report package
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.21</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-11-12</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Switch to new package structure
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.19</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-11-09</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Switch to new channel project.tdintern.de/tdproject
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.18</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-11-08</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Switch to new TDProject_Channel version
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.17</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-10-20</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Bugfix Release
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.16</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-10-17</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Removing hardcoded log level from Aspect
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.6.15</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-10-09</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Switching to new TechDivision_Model/Generator version
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.6.14</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-10-03</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Bugfix Release
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.12</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-09-30</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Bugfix release
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.11</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-09-30</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Bugfix release
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.10</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-09-30</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Bugfix release
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.9</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-09-30</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Version 0.7.0
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.6.7</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-08-10</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Add attribute mediaDirectory to Settings entity
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.6</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-08-05</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Moving Pointcuts and Aspects to the implementing package
+                    </notes>
+                </release>
+                <release xmlns="">
+                    <version>
+                        <release>0.6.5</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-07-25</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Add flag loadCumulatedLoggings to method getTaskViewData to solve performance issues
+                    </notes>
+                </release>
+                <release xmlns="">
+                    <version>
+                        <release>0.6.4</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-07-23</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Bugfix for missed $ sign in build.xml
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.3</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-07-23</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Refactoring build process for GIT usage
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.6.2</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-07-23</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Bugfix for invalid rendering of bVisible flag in AJAX grid
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.6.1</release>
+                        <api>0.6.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-07-19</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Integration of TechDivision_AOP
+- Integration of an Objectmanager as factory for objects
+- Several bugfixes
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.5.15</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-26</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - New release version, added floating to graph widgets.
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.5.14</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-25</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - New release version, optimized sparklines in grid.
+                    </notes>
+                </release>
+<release xmlns="">
+                    <version>
+                        <release>0.5.13</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-25</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - New release version, optimized sparklines in grid.
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.5.12</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-25</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Add possibility to specify individual field lenght to HTML input elements
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.5.11</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-25</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Bugfixing #0004972
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.5.10</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-24</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Adding jqPlot for rendering detailed performance graphs.
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.5.9</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-20</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Refactor for integration of new statistic package
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.5.8</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-19</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Add functionality to save grid state, and filter groups to list system groups only
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.5.7</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-18</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Translations
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.5.6</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-16</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Fix minor bugs
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.5.5</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-16</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        Bugfix invalid lookup for api.xml and navigation.xml
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.5.4</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-16</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Bugfix setup script
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.5.3</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-05-16</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - Translation and ACL extension
+                    </notes>
+                </release>
+<release>
+                    <version>
+                        <release>0.5.4</release>
+                        <api>0.5.2</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2011-04-30</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        - New release version
+                    </notes>
+                </release>
+<release>
+            <version>
+                <release>0.5.2</release>
+                <api>0.5.2</api>
+            </version>
+            <stability>
+                <release>beta</release>
+                <api>beta</api>
+            </stability>
+            <date>2011-03-13</date>
+            <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+            <notes>
+                - Adding sort and search functionality to AJAX based Grid
+            </notes>
+        </release>
+        <release>
+			<version>
+				<release>0.5.1</release>
+				<api>0.5.1</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2011-03-12</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Add new AJAX based Grid
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.5.0</release>
+				<api>0.5.0</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2011-01-12</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Switching to new TechDivision_Generator package
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.4.1</release>
+				<api>0.4.1</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2011-01-08</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Bugfixing invalid rendering of page title
+                - Adding possibility to store and render error messages in the Session
+                - Rendering role near username
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.4.0</release>
+				<api>0.4.0</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-12-22</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Finish to refactor the block model
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.3.0</release>
+				<api>0.3.0</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-11-25</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Refactor block model and integrate widgets
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.2.3</release>
+				<api>0.2.2</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-10-07</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Integrate full width page layout
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.2.2</release>
+				<api>0.2.2</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-10-07</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Refactor theme
+                - Add basic reporting functionality to project
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.2.1</release>
+				<api>0.2.1</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-10-07</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Refactor theme
+                - Add basic reporting functionality to project
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.2.0</release>
+				<api>0.2.0</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-08-28</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Refactor logging functionality
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.1.9</release>
+				<api>0.1.4</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-08-28</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Adding new Action Block for Errors and Messages
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.1.8</release>
+				<api>0.1.3</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-08-26</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Refactoring for stand-alone navigation (no longer resource-based)
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.1.7</release>
+				<api>0.1.3</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-08-26</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - css changes for better drop down menu
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.1.6</release>
+				<api>0.1.3</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-08-11</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - no major changes
+            </notes>
+		</release>
+        <release>
+			<version>
+				<release>0.1.5</release>
+				<api>0.1.3</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-08-11</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - fix for bad package2.xml
+            </notes>
+		</release>     
+        <release>
+			<version>
+				<release>0.1.4</release>
+				<api>0.1.2</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-08-11</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Added new multi-layer drop down menu structure + renderer
+            </notes>
+		</release>        
+        <release>
+			<version>
+				<release>0.1.4</release>
+				<api>0.1.2</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-08-11</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Refactoring for project + report package
+            </notes>
+		</release>
+		<release>
+			<version>
+				<release>0.1.3</release>
+				<api>0.1.2</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-08-07</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Refactoring for usage with ERP package
+            </notes>
+		</release>
+		<release>
+			<version>
+				<release>0.1.2</release>
+				<api>0.1.1</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-07-29</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Removing invalid parameter $request from _getDelegate() method
+            </notes>
+		</release>
+		<release>
+			<version>
+				<release>0.1.1</release>
+				<api>0.1.1</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-07-29</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Refactoring for integration of ERP package
+            </notes>
+		</release>
+		<release>
+			<version>
+				<release>0.1.0</release>
+				<api>0.1.0</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-07-22</date>
+			<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+			<notes>
+                - Initial release
+            </notes>
+		</release>
+    </changelog>
+</package>

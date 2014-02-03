@@ -1,0 +1,46 @@
+<?php 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+?>
+<?php $messages = $this->getErrors() ?>
+<?php if ($messages->size() > 0): ?>
+
+	<div id="messages-content" <?php if ($this->isDialog()):?>style="display:none;"<?php endif;?>>
+		<ul>
+	    <?php foreach($messages as $message): ?>
+	    	<li><?php echo $message->getMessage() ?></li>
+	    <?php endforeach; ?>
+	    </ul>
+	</div>
+	
+	<?php if ($this->isDialog()):?>
+		<script type="text/javascript">
+			// show global messages container
+			$('#messages-content').dialog({
+				dialogClass: 'info',
+				title: 'System Information',
+				hide: 'fade',
+				width: 350,
+				minHeight: 20,
+				resizable: false,
+				modal: true,
+				buttons: {
+					Ok: function() {
+						$( this ).dialog( 'close' );
+					}
+				},
+				close: function() {
+					$(this).remove();
+				}
+			});
+		</script>
+	<?php endif; ?>
+	
+<?php endif; ?>

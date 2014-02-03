@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * TDProject_Project
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+?>
+<fieldset class="ui-widget ui-widget-content ui-corner-all">
+	<legend><?php echo $this->getBlockTitle() ?></legend><?php foreach ($this->_getChilds() as $child) { ?>
+	<?php echo $this->_getChildHtml($child->getBlockName()) ?>
+<?php } ?></fieldset>		

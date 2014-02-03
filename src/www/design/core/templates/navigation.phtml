@@ -1,0 +1,48 @@
+<?php
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+?>
+
+<div id="navigation-content" style="display:none">
+	<ul>
+	<?php foreach ($this->getNavigation() as $element): ?>
+		<?php if ($element->isVisible()): ?>
+    		<li <?php if ($element->isActive()): ?>class="active"<?php endif;?>>
+    			<a href="<?php echo $element->getUrl() ?>">
+    				<?php echo $element->translate() ?>
+    			</a>
+		    	<?php if($element->hasChildren()): ?>
+		    		<ul>
+		    		<?php foreach ($element->getChildren() as $child): ?>
+						<?php if ($child->isVisible()): ?>
+			    			<li <?php if ($child->isActive()): ?>class="active"<?php endif;?>>
+			    				<a href="<?php echo $child->getUrl() ?>">
+			    					<?php echo $child->translate() ?>
+			    				</a>
+			    			</li>  		
+				    	<?php endif; ?>
+				    <?php endforeach; ?>
+				    </ul> 
+		    	<?php endif; ?>
+	    	</li>    	
+	    <?php endif; ?>
+	<?php endforeach; ?> 
+	</ul>
+</div>
+
+<script type="text/javascript">    
+    $(function() {
+		$('#button-menu').menu({ 
+			content: $('#navigation-content').html(),
+			flyOut: true,
+			showSpeed: 100,
+		});
+    });
+</script>

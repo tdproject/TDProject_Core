@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+-->
+<entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.techdivision.com/schema/entity-1.0.0.xsd"
+	name="Resource" type="entity">
+    <description>This class represents an object oriented way to manipulate data in the database.</description>
+    <members>
+        <member name="resourceId" sqlname="resource_id" type="Integer" initial="0"/>
+    	<member name="resourceLocale" sqlname="resource_locale" type="String" initial="null"/>
+        <member name="key" sqlname="key" type="String" initial="null"/>
+        <member name="message" sqlname="message" type="String" initial="null"/>
+	</members>
+	<querys>
+		<query>
+			<description><![CDATA[Returns all resources.]]></description>
+			<method name="findAll">
+				<params/>
+			</method>
+			<result-type>ArrayList</result-type>
+			<sql>SELECT resource_id FROM resource</sql>
+		</query>
+	</querys>
+	<references/>
+	<tables>
+		<table type="InnoDB" default-charset="utf8" collate="utf8_unicode_ci" auto-increment="1" name="resource">
+			<keys>
+				<pk name="resource_pk" field="resource_id"/>
+				<unique-multi name="resource_uidx_01">
+				    <columns>
+				        <column>resource_locale</column>
+                        <column>key</column>
+				    </columns>
+				</unique-multi>
+			</keys>	
+			<fields>
+				<field name="resource_id" type="int" length="10" nullable="false" autoincrement="true"/>
+				<field name="resource_locale" type="varchar" length="5" nullable="false"/>
+                <field name="key" type="varchar" length="255" nullable="false"/>
+                <field name="message" type="varchar" length="255" nullable="false"/>
+			</fields>
+		</table>
+	</tables>
+</entity>

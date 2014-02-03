@@ -1,0 +1,5 @@
+<div id="<?php echo $this->getCssId() ?>">
+<?php foreach ($this->_getChilds() as $child) { ?>
+	<?php $this->_getChildHtml($child->getBlockName()) ?>
+<?php } ?>
+</div>

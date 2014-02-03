@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+-->
+<entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.techdivision.com/schema/entity-1.0.0.xsd"
+	name="Rewrite" type="entity">
+    <description>This class represents an object oriented way to manipulate data in the database.</description>
+    <members>
+        <member name="rewriteId" sqlname="rewrite_id" type="Integer" initial="0"/>
+    	<member name="source" sqlname="source" type="String" initial="null"/>
+        <member name="name" sqlname="name" type="String" initial="null"/>
+    	<member name="path" sqlname="path" type="String" initial="null"/>
+        <member name="redirect" sqlname="redirect" type="Boolean" initial="null"/>
+        <member name="responseCode" sqlname="response_code" type="Integer" initial="null"/>
+	</members>
+	<querys>
+		<query>
+			<description><![CDATA[Returns all rewrites.]]></description>
+			<method name="findAll">
+				<params/>
+			</method>
+			<result-type>ArrayList</result-type>
+			<sql><![CDATA[SELECT rewrite_id FROM rewrite]]></sql>
+		</query>
+        <query>
+            <description><![CDATA[Returns the rewrite for the passed source.]]></description>
+            <method name="findBySource">
+                <params>
+                    <param name="source" type="String"/>
+                </params>
+            </method>
+            <result-type>Storable</result-type>
+            <sql><![CDATA[SELECT rewrite_id FROM rewrite WHERE source = ?]]></sql>
+        </query>
+	</querys>
+	<tables>
+		<table type="InnoDB" default-charset="utf8" collate="utf8_unicode_ci" auto-increment="1" name="rewrite">
+			<keys>
+				<pk name="rewrite_pk" field="rewrite_id"/>
+                <unique name="rewrite_uidx_01" field="source"/>
+			</keys>	
+			<fields>
+				<field name="rewrite_id" type="int" length="10" nullable="false" autoincrement="true"/>
+				<field name="source" type="varchar" length="255" nullable="false"/>
+				<field name="name" type="varchar" length="255" nullable="false"/>
+                <field name="path" type="varchar" length="255" nullable="false"/>
+                <field name="redirect" type="tinyint" length="1" nullable="false" default="0"/>
+                <field name="response_code" type="int" length="10" nullable="false" default="200"/>
+			</fields>
+		</table>
+	</tables>
+</entity>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+-->
+<entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.techdivision.com/schema/entity-1.0.0.xsd"
+	name="Role" type="entity">
+    <description>This class represents an object oriented way to manipulate data in the database.</description>
+    <members>
+        <member name="roleId" sqlname="role_id" type="Integer" initial="0"/>
+        <member name="roleIdFk" sqlname="role_id_fk" type="Integer" initial="0"/>
+        <member name="userIdFk" sqlname="user_id_fk" type="Integer" initial="0"/>
+    	<member name="name" sqlname="name" type="String" initial="null"/>
+	</members>
+	<querys>
+		<query>
+			<description><![CDATA[Returns all roles.]]></description>
+			<method name="findAll">
+				<params/>
+			</method>
+			<result-type>ArrayList</result-type>
+			<sql>SELECT role_id FROM role</sql>
+		</query>
+        <query>
+            <description><![CDATA[Returns the child roles for the role with the passed role ID.]]></description>
+            <method name="findAllByRoleIdFk">
+                <params>
+                    <param name="roleIdFk" type="Integer"/>
+                </params>
+            </method>
+            <result-type>ArrayList</result-type>
+            <sql><![CDATA[SELECT role_id FROM role WHERE role_id_fk = ?]]></sql>
+        </query>
+        <query>
+            <description><![CDATA[Returns the child roles for the role with the passed role ID.]]></description>
+            <method name="findAllSystemRoles">
+                <params/>
+            </method>
+            <result-type>ArrayList</result-type>
+            <sql><![CDATA[SELECT role_id FROM role WHERE user_id_fk IS NULL]]></sql>
+        </query>
+        <query>
+            <description><![CDATA[Returns the child roles for the role with the passed role ID.]]></description>
+            <method name="findAllByUserIdFk">
+                <params>
+                    <param name="userIdFk" type="Integer"/>
+                </params>
+            </method>
+            <result-type>ArrayList</result-type>
+            <sql><![CDATA[SELECT role_id FROM role WHERE user_id_fk = ?]]></sql>
+        </query>
+	</querys>
+	<references>
+		<reference name="role-has-users">
+			<method-name>Users</method-name>
+			<multiplicity>many</multiplicity>
+			<source>
+				<entity-name>User</entity-name>
+			</source>
+			<target>
+				<member-name>roleId</member-name>
+			</target>
+		</reference>
+        <reference name="role-has-parent">
+            <method-name>Parent</method-name>
+            <multiplicity>one</multiplicity>
+            <source>
+                <entity-name>Role</entity-name>
+            </source>
+            <target>
+                <member-name>roleIdFk</member-name>
+            </target>
+        </reference>
+        <reference name="role-has-childs">
+            <method-name>Childs</method-name>
+            <multiplicity>many</multiplicity>
+            <source>
+                <entity-name>Role</entity-name>
+            </source>
+            <target>
+                <member-name>roleId</member-name>
+            </target>
+        </reference>
+	</references>
+	<tables>
+		<table type="InnoDB" default-charset="utf8" collate="utf8_unicode_ci" auto-increment="1" name="role">
+			<keys>
+				<pk name="role_pk" field="role_id"/>
+                <index name="role_idx_01" field="role_id_fk"/>
+                <index name="role_idx_02" field="user_id_fk"/>
+                <fk name="role_fk_01" field="role_id_fk" target-table="role" target-field="role_id" on-delete="null"/>
+                <fk name="role_fk_02" field="user_id_fk" target-table="user" target-field="user_id" on-delete="null"/>
+			</keys>	
+			<fields>
+				<field name="role_id" type="int" length="10" nullable="false" autoincrement="true"/>
+                <field name="role_id_fk" type="int" length="10" nullable="true"/>
+                <field name="user_id_fk" type="int" length="10" nullable="true"/>
+				<field name="name" type="varchar" length="45" nullable="false"/>
+			</fields>
+			<initial-data>
+				<rows>
+					<row>
+						<col name="role_id">1</col>
+                        <col name="role_id_fk">5</col>
+						<col name="name">Administrator</col>
+					</row>
+					<row>
+						<col name="role_id">2</col>
+                        <col name="role_id_fk">4</col>
+						<col name="name">User</col>
+					</row>
+                    <row>
+                        <col name="role_id">3</col>
+                        <col name="name">Guest</col>
+                    </row>
+                    <row>
+                        <col name="role_id">4</col>
+                        <col name="role_id_fk">3</col>
+                        <col name="name">Developer</col>
+                    </row>
+                    <row>
+                        <col name="role_id">5</col>
+                        <col name="role_id_fk">2</col>
+                        <col name="name">Projectmanager</col>
+                    </row>
+                    <row>
+                        <col name="role_id">6</col>
+                        <col name="role_id_fk">1</col>
+                        <col name="user_id_fk">1</col>
+                        <col name="name">admin</col>
+                    </row>
+                    <row>
+                        <col name="role_id">7</col>
+                        <col name="role_id_fk">3</col>
+                        <col name="user_id_fk">2</col>
+                        <col name="name">guest</col>
+                    </row>
+				</rows>
+			</initial-data>
+		</table>
+	</tables>
+</entity>

@@ -1,0 +1,22 @@
+<?php 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+?>
+
+<?php $messages = $this->getMessages(); ?>
+<?php if ($messages->size() > 0): ?>
+	<script type="text/javascript">
+	    <?php foreach($messages as $message): ?>
+			$.jGrowl('<?php echo $message->getMessage(); ?>', {
+				header: '<?php echo $this->translate('message.SystemMessage');?>'
+			});
+	    <?php endforeach; ?>
+    </script>
+<?php endif; ?>

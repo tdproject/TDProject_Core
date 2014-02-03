@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<observers>
+    <observer>
+        <observerType>TDProject_Event_Observer_Action</observerType>
+        <eventName>/post/dispatch/logging/json/__default</eventName>
+        <callbackClassName>TDProject_Core_Observer_Controller_Logging_Json</callbackClassName>
+        <callbackMethodName>postDispatchLoggingJson</callbackMethodName>
+    </observer>
+</observers>

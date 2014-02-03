@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+-->
+<entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.techdivision.com/schema/entity-1.0.0.xsd"
+	name="Setting" type="entity">
+    <description>This class represents an object oriented way to manipulate data in the database.</description>
+    <members>
+        <member name="settingId" sqlname="setting_id" type="Integer" initial="0"/>
+    	<member name="emailSupport" sqlname="email_support" type="String" initial="null"/>
+        <member name="mediaDirectory" sqlname="media_directory" type="String" initial="null"/>
+    	<member name="useLdap" sqlname="use_ldap" type="Boolean" initial="false"/>
+    	<member name="ldapHost" sqlname="ldap_host" type="String" initial="null"/>
+    	<member name="ldapBindRequired" sqlname="ldap_bind_required" type="Boolean" initial="false"/>
+    	<member name="ldapDomain" sqlname="ldap_domain" type="String" initial="null"/>
+    	<member name="ldapDn" sqlname="ldap_dn" type="String" initial="null"/>
+    	<member name="useSmtp" sqlname="use_smtp" type="Boolean" initial="false"/>
+    	<member name="smtpHost" sqlname="smtp_host" type="String" initial="null"/>
+    	<member name="smtpPort" sqlname="smtp_port" type="Integer" initial="25"/>
+    	<member name="smtpUser" sqlname="smtp_user" type="String" initial="null"/>
+    	<member name="smtpPassword" sqlname="smtp_password" type="String" initial="null"/>
+    	<member name="webserviceUri" sqlname="webservice_uri" type="String" initial="null"/>
+        <member name="wsdlUri" sqlname="wsdl_uri" type="String" initial="null"/>
+	</members>
+	<querys>
+		<query>
+			<description><![CDATA[Returns all settings.]]></description>
+			<method name="findAll">
+				<params/>
+			</method>
+			<result-type>ArrayList</result-type>
+			<sql><![CDATA[SELECT setting_id FROM setting]]></sql>
+		</query>
+	</querys>
+	<tables>
+		<table type="InnoDB" default-charset="utf8" collate="utf8_unicode_ci" auto-increment="1" name="setting">
+			<keys>
+				<pk name="setting_pk" field="setting_id"/>
+			</keys>	
+			<fields>
+				<field name="setting_id" type="int" length="10" nullable="false" autoincrement="true"/>
+				<field name="email_support" type="varchar" length="45" nullable="false"/>
+				<field name="media_directory" type="varchar" length="255" nullable="false"/>
+				<field name="use_ldap" type="tinyint" length="1" nullable="false"/>
+				<field name="ldap_host" type="varchar" length="100" nullable="false"/>
+				<field name="ldap_bind_required" type="tinyint" length="1" nullable="false" default="0"/>
+				<field name="ldap_domain" type="varchar" length="100" nullable="true"/>
+				<field name="ldap_dn" type="varchar" length="255" nullable="true"/>
+				<field name="use_smtp" type="tinyint" length="1" nullable="false" default="0"/>
+				<field name="smtp_host" type="varchar" length="100" nullable="true"/>
+				<field name="smtp_port" type="int" length="10" nullable="false" default="25"/>
+				<field name="smtp_user" type="varchar" length="100" nullable="true"/>
+				<field name="smtp_password" type="varchar" length="45" nullable="true"/>
+				<field name="webservice_uri" type="varchar" length="255" nullable="true"/>
+                <field name="wsdl_uri" type="varchar" length="255" nullable="true"/>
+			</fields>
+			<initial-data>
+				<rows>
+					<row>
+						<col name="setting_id">1</col>
+						<col name="email_support">tw@techdivision.com</col>
+                        <col name="media_directory">TDProject/Media</col>
+						<col name="use_ldap">0</col>
+						<col name="ldap_host"></col>
+						<col name="ldap_bind_required">0</col>
+						<col name="ldap_domain"></col>
+						<col name="ldap_dn"></col>
+						<col name="use_smtp">1</col>
+						<col name="smtp_host">mail.techdivision.com</col>
+						<col name="smtp_port">25</col>
+						<col name="smtp_user"></col>
+						<col name="smtp_password"></col>
+						<col name="webservice_uri">http://localhost/tdproject/pear/php/index.php?path=/api</col>
+                        <col name="wsdl_uri">http://localhost/tdproject/pear/php/index.php?path=/api&amp;method=wsdl</col>
+					</row>
+				</rows>
+			</initial-data>
+		</table>
+	</tables>
+</entity>

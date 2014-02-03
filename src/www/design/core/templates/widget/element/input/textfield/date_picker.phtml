@@ -1,0 +1,20 @@
+<div class="<?php echo $this->getCssClass() ?>">
+	<script>
+    	$(function() {
+    		$(".datepicker").datepicker();
+    	});
+	</script>
+	<label for="<?php echo $this->getBlockName() ?>">
+		<span class="title"><?php echo $this->getBlockTitle() ?>:</span><?php if ($this->isMandatory()) { ?>&nbsp;<span class="required">*</span><?php } ?>
+	</label> 
+	<input 
+		type="text"
+		style="width:<?php echo $this->getWidth() ?>px"
+		size="<?php echo $this->getSize() ?>"
+		maxlength="<?php echo $this->getMaxLength() ?>"
+		class="datepicker"
+		id="<?php echo $this->getBlockName() ?>"
+		name="<?php echo $this->getBlockName() ?>" 
+		value="<?php echo $this->getValue() ?>" 
+		<?php if ($this->isDisabled()) { ?> disabled="disabled"<?php } ?>>
+</div>

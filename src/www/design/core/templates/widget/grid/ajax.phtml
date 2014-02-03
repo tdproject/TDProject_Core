@@ -1,0 +1,93 @@
+<?php
+
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+
+?>
+
+<script type="text/javascript" charset="utf-8">
+
+var <?php echo $this->getBlockName() ?>;
+var giRedraw = false;
+
+$(document).ready(function() {
+	<?php echo $this->getBlockName() ?> = $('#<?php echo $this->getBlockName() ?>').dataTable( {
+		"bJQueryUI": true,
+		"sPaginationType": "full_numbers",
+		"bFilter": true,
+		"bProcessing": true,
+		"bServerSide": true,
+		"bStateSave": true,
+		"aaSorting": [[ 0, "desc" ]], // set initial sort order to 'descending'
+		"sAjaxSource": '<?php echo $this->getDataSource() ?>',
+		"aoColumnDefs": [<?php foreach ($this->getColumns() as $column) { ?>
+        	{ "bVisible": <?php if ($column->isVisible()) { ?>true<?php } else { ?>false<?php } ?>, "aTargets": [ "<?php echo $column->getBlockName() ?>" ] },
+    	<?php } ?>]
+	} );
+
+	/* Add a click handler to the rows - this could be used as a callback */
+	$("#<?php echo $this->getBlockName() ?> tbody").click(function(event) {
+		$(<?php echo $this->getBlockName() ?>.fnSettings().aoData).each(function (){
+			$(this.nTr).removeClass('row_selected');
+		});
+		$(event.target.parentNode).addClass('row_selected');
+	});
+
+	<?php foreach ($this->getActions()->getActions() as $action) { ?>
+	// add a click handler for the action
+	$('#<?php echo $action->getProperty() ?>').click( function() {
+		var anSelected = fnGetIdsOfSelectedRows(fnGetSelected(<?php echo $this->getBlockName() ?>));
+		for (var i = 0; i < anSelected.length; i++) {
+			<?php echo $action->getUrl() ?>
+		}
+	});
+	<?php } ?>
+});
+
+/* Get the rows which are currently selected */
+function fnGetSelected(oTableLocal) {
+
+	var aReturn = new Array();
+	var aTrs = oTableLocal.fnGetNodes();
+
+	for (var i = 0; i < aTrs.length; i++) {
+		if ($(aTrs[i]).hasClass('row_selected')) {
+			aReturn.push(aTrs[i]);
+		}
+	}
+
+	return aReturn;
+}
+
+function fnGetIdsOfSelectedRows(oSelectedRows) {
+
+    var aRowIndexes = new Array();
+    var aRowData = new Array();
+    var aReturn = new Array();
+
+    aRowIndexes = oSelectedRows;
+
+    for (var i = 0; i < aRowIndexes.length; i++) {
+        aRowData = <?php echo $this->getBlockName() ?>.fnGetData(aRowIndexes[i]);
+        aReturn.push(aRowData[0]);
+    }
+
+    return aReturn;
+}
+
+</script>
+<div id="dynamic">
+	<table cellpadding="0" cellspacing="0" border="0" class="display" id="<?php echo $this->getBlockName() ?>">
+		<?php foreach ($this->_getChilds() as $child) { ?>
+			<?php $this->_getChildHtml($child->getBlockName()) ?>
+		<?php } ?>
+	</table>
+</div>
+<div class="spacer"></div>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+-->
+<entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.techdivision.com/schema/entity-1.0.0.xsd"
+	name="User" type="entity">
+    <description>This class represents an object oriented way to manipulate data in the database.</description>
+    <members>
+        <member name="userId" sqlname="user_id" type="Integer" initial="0"/>
+    	<member name="email" sqlname="email" type="String" initial="null"/>
+    	<member name="username" sqlname="username" type="String" initial="null"/>
+    	<member name="userLocale" sqlname="locale" type="String" initial="null"/>
+    	<member name="password" sqlname="password" type="String" initial="null"/>
+        <member name="enabled" sqlname="enabled" type="Boolean" initial="false"/>
+        <member name="rate" sqlname="rate" type="Integer" initial="2000"/>
+        <member name="contractedHours" sqlname="contracted_hours" type="Integer" initial="160"/>
+        <member name="ldapSynced" sqlname="ldap_synced" type="Boolean" initial="false"/>
+        <member name="syncedAt" sqlname="synced_at" type="Integer" initial="0"/>
+	</members>
+	<querys>
+		<query>
+			<description><![CDATA[Returns all users.]]></description>
+			<method name="findAll">
+				<params/>
+			</method>
+			<result-type>ArrayList</result-type>
+			<sql><![CDATA[SELECT user_id FROM user ORDER BY username ASC]]></sql>
+		</query>
+		<query>
+			<description><![CDATA[Returns the user with the passed username.]]></description>
+			<method name="findByUsername">
+				<params>
+					<param name="username" type="String"/>
+				</params>
+			</method>
+			<result-type>Storable</result-type>
+			<sql><![CDATA[SELECT user_id FROM user WHERE username = ?]]></sql>
+		</query>
+		<query>
+			<description><![CDATA[Returns the user's with the passed username.]]></description>
+			<method name="findAllByUsername">
+				<params>
+					<param name="username" type="String"/>
+				</params>
+			</method>
+			<result-type>ArrayList</result-type>
+			<sql><![CDATA[SELECT user_id FROM user WHERE username = ? ORDER BY username ASC]]></sql>
+		</query>
+		<query>
+			<description><![CDATA[Returns the user's with the passed email.]]></description>
+			<method name="findAllByEmail">
+				<params>
+					<param name="email" type="String"/>
+				</params>
+			</method>
+			<result-type>ArrayList</result-type>
+			<sql><![CDATA[SELECT user_id FROM user WHERE email = ?]]></sql>
+		</query>
+		<query>
+			<description><![CDATA[Returns the users with the passed role ID.]]></description>
+			<method name="findAllByRoleIdFk">
+				<params>
+					<param name="roleIdFk" type="Integer"/>
+				</params>
+			</method>
+			<result-type>ArrayList</result-type>
+			<sql><![CDATA[SELECT t1.user_id FROM user t1, role t2 WHERE t2.role_id_fk = 1 AND t1.user_id = t2.user_id_fk ORDER BY t1.username ASC]]></sql>
+		</query>
+	</querys>
+	<references>
+		<reference name="user-has-roles">
+			<method-name>UserRoles</method-name>
+			<multiplicity>many</multiplicity>
+			<source>
+				<entity-name>Role</entity-name>
+			</source>
+			<target>
+				<member-name>userId</member-name>
+			</target>
+		</reference>
+	</references>
+	<tables>
+		<table type="InnoDB" default-charset="utf8" collate="utf8_unicode_ci" auto-increment="1" name="user">
+			<keys>
+				<pk name="user_pk" field="user_id"/>
+				<unique name="user_uidx_01" field="username"/>
+			</keys>	
+			<fields>
+				<field name="user_id" type="int" length="10" nullable="false" autoincrement="true"/>
+				<field name="email" type="varchar" length="100" nullable="false"/>
+				<field name="username" type="varchar" length="45" nullable="false"/>
+				<field name="locale" type="varchar" length="5" nullable="false" default="en_US"/>
+				<field name="password" type="varchar" length="45" nullable="false"/>
+                <field name="enabled" type="tinyint" length="1" nullable="false" default="0"/>
+                <field name="rate" type="int" length="10" nullable="false" default="2000"/>
+                <field name="contracted_hours" type="int" length="10" nullable="false" default="160"/>
+                <field name="ldap_synced" type="tinyint" length="1" nullable="false" default="0"/>
+                <field name="synced_at" type="int" length="10" nullable="true"/>
+			</fields>
+			<initial-data>
+				<rows>
+					<row>
+						<col name="user_id">1</col>
+						<col name="email">admin@techdivision.com</col>
+						<col name="username">admin</col>
+						<col name="locale">en_US</col>
+						<col name="password">7586dca21d86c901a710a9cd92910756</col>
+                        <col name="enabled">1</col>
+                        <col name="rate">0</col>
+                        <col name="contracted_hours">160</col>
+                        <col name="ldap_synced">0</col>
+					</row>
+                    <row>
+                        <col name="user_id">2</col>
+                        <col name="email">guest@techdivision.com</col>
+                        <col name="username">guest</col>
+                        <col name="locale">en_US</col>
+                        <col name="password">80321d141d771c93b16218e72de5734f</col>
+                        <col name="enabled">0</col>
+                        <col name="rate">0</col>
+                        <col name="contracted_hours">160</col>
+                        <col name="ldap_synced">0</col>
+                    </row>
+				</rows>
+			</initial-data>
+		</table>
+	</tables>
+</entity>

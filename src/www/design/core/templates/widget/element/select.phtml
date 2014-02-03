@@ -1,0 +1,11 @@
+<label for="<?php echo $this->getBlockName() ?>" class="<?php echo $this->getCssClass() ?>">
+	<span class="title"><?php echo $this->getBlockTitle() ?>:</span><?php if ($this->isMandatory()) { ?>&nbsp;<span class="required">*</span><?php } ?>
+</label>
+<select
+	style="width: <?php echo $this->getWidth() ?>px"
+	id="<?php echo $this->getBlockName() ?>"
+	name="<?php echo $this->getBlockName() ?>"
+	<?php if ($this->isDisabled()) { ?> disabled="disabled"<?php } ?>>
+	<?php if ($this->hasDummyOption()) { ?><option value="0">Keine Zuordnung</option><?php } foreach ($this->getOptions() as $option) { ?>
+	<option value="<?php echo $this->getOptionValue($option) ?>" <?php if ($this->isSelected($option)) { ?>selected="selected"<?php } ?>><?php echo $this->getOptionLabel($option) ?></option>
+<?php } ?></select>

@@ -1,0 +1,8 @@
+<td width="<?php echo $this->getWidth() ?>%">
+	<select 
+		id="<?php echo $this->getBlockName() ?>"
+		name="<?php echo $this->getBlockName() ?>[<?php echo $this->getValue() ?>]"
+		onchange="selectChange(this);"><?php foreach ($this->getOptions() as $option) { ?>
+		<option value="<?php echo $this->getOptionValue($option) ?>" <?php if ($this->isSelected($option)) { ?>selected="selected"<?php } ?>><?php echo $this->getOptionLabel($option) ?></option>
+	<?php } ?></select>
+</td>

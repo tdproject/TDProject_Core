@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+
+// load the ActionForm
+$actionForm = $this->getRequest()->getAttribute(
+    $formKey = TDProject_Core_Block_Login_Form::FORM_KEY
+);
+
+?>
+<div class="loginWrapper">
+	<form name="<?php echo $formKey ?>" method="post" class="login">
+		<input type="hidden" name="path" value="/login" />
+		<input type="hidden" name="method" value="validate" />
+		<fieldset class="ui-widget ui-widget-content ui-corner-all">
+			<legend><?php echo $this->translate('label.fieldset.credentials') ?></legend>
+			<div>
+				<label for="username">
+					<?php echo $this->translate('label.login.username') ?>
+					<span class="required">*</span>
+				</label>
+				<input type="text" name="username" id="username"
+					value="<?php echo $actionForm->getUsername() ?>">
+			</div>
+			
+			<div>
+				<label for="password">
+					<?php echo $this->translate('label.login.password') ?>
+					<span class="required">*</span>
+				</label>
+				<input type="password" name="password" id="password"
+					value="<?php echo $actionForm->getPassword() ?>">
+			</div>
+			<br/>
+			<button class="css_right" type="submit" id="submit">
+			    <?php echo $this->translate('label.button.login.login') ?>
+			</button>
+		</fieldset>
+	</form>
+</div>
+
+<script type="text/javascript">
+	// init Button
+	$(function() {
+		$("#submit").button({
+			icons: {
+				primary: "ui-icon-power",
+			}
+		});
+	});
+</script>

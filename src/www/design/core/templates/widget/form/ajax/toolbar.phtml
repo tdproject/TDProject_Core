@@ -1,0 +1,33 @@
+<?php
+ 
+/**
+ * TDProject_Core
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+
+?>
+<script type="text/javascript">
+
+	// iterate over all buttons and add them to the Toolbar
+	$(document).ready(function() {<?php foreach ($this->getButtons() as $button) { ?>		
+		// check if the save task button was already added
+		if ($("#<?php echo $button->getBlockName() ?>").length == 0) {
+			// if not, add it
+			$("#<?php echo $this->getBlockName() ?>")
+				.prepend('<button id="<?php echo $button->getBlockName() ?>"><?php echo $button->getBlockTitle() ?></button>');
+			// initialize the button
+			$("#<?php echo $button->getBlockName() ?>").button({ 
+					icons : { primary: "<?php echo $button->getIcon() ?>" } 
+				}).click(function() {
+					<?php if ($button->isBindedToTab()) { ?>$('#tabs').tabs('select', '#<?php echo $button->getBindedTab()->getCssId() ?>');<?php } ?>
+					<?php echo $button->getOnClick(); ?>
+				});
+		}<?php } ?>
+	});
+
+</script>
