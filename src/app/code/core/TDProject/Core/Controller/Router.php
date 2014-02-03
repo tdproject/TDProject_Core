@@ -44,11 +44,11 @@ class TDProject_Core_Controller_Router
 	public function __default()
 	{
 	    try {
-	    	// load the redirect URL
-			$redirectUrl = $this->getRedirectUrl();
+	    	// load the request URI
+			$requestURI = $this->getRequestURI();
 			// log the found URL
 			$this->_getLogger()
-				->debug('Redirect URL: ' . $redirectUrl, __LINE__);
+				->debug('Request URI: ' . $requestURI, __LINE__);
 			// load the base URL
 			$baseUrl = $this->getBaseUrl();
 			// if the base URL is the root URL, strip the leading slash
@@ -59,7 +59,7 @@ class TDProject_Core_Controller_Router
 			$this->_getLogger()
 				->debug('Base URL: ' . $baseUrl, __LINE__);
 			// prepare the URL
-			$preparedUrl = str_replace($baseUrl, '', $redirectUrl);
+			$preparedUrl = str_replace($baseUrl, '', $requestURI);
 			// log the prepared URL
 			$this->_getLogger()
 				->debug('Prepared URL: ' . $preparedUrl, __LINE__);
@@ -217,13 +217,13 @@ class TDProject_Core_Controller_Router
 	}
 	
 	/**
-	 * Returns the actual redirection URL from the request.
+	 * Returns the actual request URI from the request.
 	 * 
-	 * @return string The redirection URL
+	 * @return string The request URI
 	 */
-	public function getRedirectUrl()
+	public function getRequestURI()
 	{
-		return $this->_getRequest()->getRedirectUrl();
+		return $this->_getRequest()->getRequestURI();
 	}
 	
 	/**
