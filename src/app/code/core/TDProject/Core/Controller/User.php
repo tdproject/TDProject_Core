@@ -238,7 +238,7 @@ class TDProject_Core_Controller_User
             // save container in request
             $this->_saveActionErrors($errors);
             // return failure mapping
-            return $this->create();
+            return $this->createAction();
         } catch(Exception $e) {
 			// create and add and save the error
 			$errors = new TechDivision_Controller_Action_Errors();
