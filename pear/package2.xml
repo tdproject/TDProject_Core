@@ -63,17 +63,17 @@
             </package>
             <package>
                 <name>TechDivision_AOP</name>
-                <channel>connect.techdivision.com</channel>
+                <channel>pear.appserver.io/library</channel>
                 <min>0.1.10</min>
             </package>
 			<package>
 				<name>TechDivision_Model</name>
-				<channel>connect.techdivision.com</channel>
+				<channel>pear.appserver.io/library</channel>
 				<min>0.1.2</min>
 			</package>
 			<package>
 				<name>TechDivision_Controller</name>
-				<channel>connect.techdivision.com</channel>
+				<channel>pear.appserver.io/library</channel>
 				<min>0.1.3</min>
 			</package>
 			<package>
